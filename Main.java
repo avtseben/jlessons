@@ -5,12 +5,13 @@ public class Main {
         System.out.println("Cli app started");
 
         String [] users = {"Alex", "Petr", "Sergey"};
+        String [] myContacts = {};
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNext()) {
             String nextLine = scanner.nextLine();
 
-            if (nextLine.startsWith("/s")) {
+            if (nextLine.startsWith("/search")) {
                 //Search mode
                 String searchQuery = nextLine.split(" ")[1];
                 String foundUser = null;
@@ -24,6 +25,16 @@ public class Main {
                     System.out.println("found: " + foundUser);
                 } else {
                     System.out.println("user not founded");
+                }
+            } else if (nextLine.startsWith("/list")) {
+                //List contacts
+                if (myContacts.length == 0) {
+                    System.out.println("no contacts yet");
+                } else {
+                    System.out.println("my contacts:");
+                    for (String contact : myContacts) {
+                        System.out.println(contact);
+                    }
                 }
             } else {
                 System.out.println("echo: " + nextLine);
