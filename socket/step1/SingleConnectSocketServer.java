@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.*;
 
-public class SocketServer {
+public class SingleConnectSocketServer {
 
     //Одноразовый сервер
     public static void main(String[] args) throws IOException {
