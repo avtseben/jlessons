@@ -56,7 +56,7 @@ public class CliChatWithModesIteration1 {
 
             } else if (nextLine.startsWith("/send")) {
                 // todo validate empty
-                Pattern pattern = Pattern.compile("^/send\s+(?<user>\\w+)\s+(?<message>.*)");
+                Pattern pattern = Pattern.compile("^/send +(?<user>\\w+) +(?<message>.*)");
                 Matcher matcher = pattern.matcher(nextLine);
                 if (matcher.find()) {
                     String user = matcher.group("user");
@@ -65,7 +65,7 @@ public class CliChatWithModesIteration1 {
                     System.out.printf("echo from %s: '%s'\n\r", user, message);
                 }
             } else if (nextLine.startsWith("/go")) {
-                Pattern pattern = Pattern.compile("^/go\s+(?<user>\\w+)");
+                Pattern pattern = Pattern.compile("^/go +(?<user>\\w+)");
                 Matcher matcher = pattern.matcher(nextLine);
                 if (matcher.find()) {
                     String user = matcher.group("user");
@@ -145,6 +145,7 @@ public class CliChatWithModesIteration1 {
         return true;
     }
 
+    @SuppressWarnings("ManualArrayCopy")
     private static String[] grow(String[] origin) {
         int newSize = origin.length * 2;
         String[] newArray = new String[newSize];
