@@ -1,4 +1,4 @@
-package lesson1.stepN;
+package lesson1.step2;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
