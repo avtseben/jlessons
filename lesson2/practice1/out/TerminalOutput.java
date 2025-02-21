@@ -2,7 +2,7 @@ package lesson2.practice1.out;
 
 import lesson2.practice1.mode.ModeHolder;
 
-public class TerminalOutput {
+public class TerminalOutput implements Output {
 
     private static final String DEFAULT_PROMPT = "#";
     private final ModeHolder modeHolder;
@@ -11,6 +11,7 @@ public class TerminalOutput {
         this.modeHolder = modeHolder;
     }
 
+    @Override
     public void print(String message) {
         System.out.println(message);
         showPrompt();

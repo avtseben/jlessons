@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 public class AddCommand implements Command{
 
     private static final Pattern PATTERN = Pattern.compile("^/add +(?<talker>\\w+)");
+    private static final Pattern APPLICABLE_PATTERN = Pattern.compile("^/add +.*");
 
     private final TerminalOutput out;
     private final TalkerRepository repository;
@@ -20,7 +21,7 @@ public class AddCommand implements Command{
 
     @Override
     public boolean isApplicable(String inputLine) {
-        return inputLine != null && inputLine.startsWith("/add");
+        return APPLICABLE_PATTERN.matcher(inputLine).find();
     }
 
     @Override
